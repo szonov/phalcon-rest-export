@@ -1,0 +1,29 @@
+{
+    "name": "szonov/phalcon-rest-export",
+    "description": "Phalcon REST Library",
+    "require": {
+        "php": ">=7.0",
+        "ext-phalcon": ">=3.0.0",
+        "ext-json": "*",
+        "szonov/phalcon-rest": "dev-master"
+    },
+    "authors": [
+        {
+            "name": "Olivier Andriessen",
+            "email": "olivierandriessen@gmail.com"
+        },
+        {
+            "name": "Bart Blok",
+            "email": "bart@wittig.nl"
+        },
+        {
+            "name": "Sergey Zonov",
+            "email": "sergey@zonov.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "PhalconRest\\Export\\": "src/PhalconRest/Export"
+        }
+    }
+}
