@@ -25,7 +25,9 @@ class ExportController extends CollectionController
 
     protected function getHost()
     {
-        return $this->getConfigValue('exportHost', 'http://localhost');
+        $default = 'http' . ($this->request->isSecure()?'s':'') . '//' . $this->request->getHttpHost();
+
+        return $this->getConfigValue('exportHost', $default);
     }
 
     protected function getDescription()
