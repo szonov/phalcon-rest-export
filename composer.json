@@ -5,7 +5,7 @@
         "php": ">=7.0",
         "ext-phalcon": ">=3.0.0",
         "ext-json": "*",
-        "szonov/phalcon-rest": "dev-master"
+        "szonov/phalcon-rest": "^3.0.0"
     },
     "authors": [
         {
