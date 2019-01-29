@@ -23,7 +23,7 @@ class ExportCollection extends ApiCollection
             )
             ->endpoint(
                 ApiEndpoint::get('/postman.json', 'postmanJson')
-                    ->description('Json file for importing by postman')
+                    ->description('JSON file for importing by postman')
             )
         ;
     }
