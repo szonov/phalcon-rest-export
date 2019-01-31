@@ -6,10 +6,17 @@ use PhalconRest\Transformers\Transformer;
 
 class PostmanTransformer extends Transformer
 {
+    protected $useAuthHeader;
+
     protected $defaultIncludes = [
         'folders',
         'requests',
     ];
+
+    public function __construct($useAuthHeader = true)
+    {
+        $this->useAuthHeader = $useAuthHeader;
+    }
 
     public function transform(Postman $collection)
     {
@@ -28,6 +35,6 @@ class PostmanTransformer extends Transformer
 
     public function includeRequests(Postman $collection)
     {
-        return $this->collection($collection->getRequests(), new RequestTransformer);
+        return $this->collection($collection->getRequests(), new RequestTransformer($this->useAuthHeader));
     }
 }

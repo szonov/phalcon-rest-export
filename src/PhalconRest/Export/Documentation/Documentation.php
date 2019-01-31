@@ -110,18 +110,6 @@ class Documentation extends Plugin
                 $allowedRoleNames[] = $role;
             }
 
-//            foreach ($aclRoles as $role)
-//            {
-//                $conditions = [];
-//                if ( $this->acl->isAllowed($role, $apiCollection->getName(), $apiEndpoint->getName(), $conditions) )
-//                {
-//                    if (!empty($conditions))
-//                        $role .= '*';
-//
-//                    $allowedRoleNames[] = $role;
-//                }
-//            }
-
             $endpoint->setAllowedRoles($allowedRoleNames);
 
             $collection->addEndpoint($endpoint);

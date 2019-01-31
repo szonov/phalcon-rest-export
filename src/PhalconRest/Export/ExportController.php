@@ -49,7 +49,10 @@ class ExportController extends CollectionController
         $postmanCollection->addManyCollections($this->application->getCollections());
         $postmanCollection->addManyRoutes($this->application->getRouter()->getRoutes());
 
-        return $this->createItemResponse($postmanCollection, new PostmanTransformer());
+        $rules = (array)$this->request->getAclRules();
+        $hideAuthHeader = $rules['noAuthHeader'] ?? false;
+
+        return $this->createItemResponse($postmanCollection, new PostmanTransformer(!$hideAuthHeader));
     }
 
     public function documentation()

@@ -20,6 +20,7 @@ class ExportCollection extends ApiCollection
             ->endpoint(
                 ApiEndpoint::get('/documentation.json', 'documentationJson')
                     ->description('JSON with data for HTML Documentation')
+                    ->aclRules(['noAuthHeader'])
             )
             ->endpoint(
                 ApiEndpoint::get('/postman.json', 'postmanJson')

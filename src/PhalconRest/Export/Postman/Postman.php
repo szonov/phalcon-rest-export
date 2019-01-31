@@ -65,10 +65,6 @@ class Postman extends ApiCollection
             }
         }
 
-//        if (@unserialize($route->getName())) {
-//            return;
-//        }
-//
         $name = $routeName ?: $route->getPattern();
 
         $request = $this->addRequest(new Request(
