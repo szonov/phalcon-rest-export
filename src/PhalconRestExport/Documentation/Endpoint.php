@@ -1,6 +1,6 @@
 <?php
 
-namespace PhalconRest\Export\Documentation;
+namespace PhalconRestExport\Documentation;
 
 class Endpoint
 {
@@ -10,7 +10,6 @@ class Endpoint
     protected $path;
     protected $exampleResponse;
     protected $allowedRoles = [];
-    protected $conditions = [];
 
     public function getName()
     {
@@ -70,15 +69,5 @@ class Endpoint
     public function setAllowedRoles($allowedRoles)
     {
         $this->allowedRoles = $allowedRoles;
-    }
-
-    public function getConditions()
-    {
-        return $this->conditions;
-    }
-
-    public function setConditions($conditions)
-    {
-        $this->conditions = $conditions;
     }
 }

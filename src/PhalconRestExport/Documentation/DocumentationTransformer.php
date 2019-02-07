@@ -1,6 +1,6 @@
 <?php
 
-namespace PhalconRest\Export\Documentation;
+namespace PhalconRestExport\Documentation;
 
 use PhalconRest\Transformers\Transformer;
 

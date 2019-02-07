@@ -1,6 +1,6 @@
 <?php
 
-namespace PhalconRest\Export\Postman;
+namespace PhalconRestExport\Postman;
 
 use Phalcon\Mvc\Router\Route;
 use PhalconRest\Api\ApiCollection;
@@ -56,16 +56,11 @@ class Postman extends ApiCollection
 
     public function addRoute(Route $route)
     {
-        $routeName = $route->getName();
-        if ($routeName)
-        {
-            $parts = explode('!', $routeName, 3);
-            if (@unserialize($parts[2] ?? null)) {
-                return;
-            }
+        if (@unserialize($route->getName())) {
+            return;
         }
 
-        $name = $routeName ?: $route->getPattern();
+        $name = $route->getName() ?: $route->getPattern();
 
         $request = $this->addRequest(new Request(
             $this->id,

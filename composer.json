@@ -1,11 +1,9 @@
 {
     "name": "szonov/phalcon-rest-export",
-    "description": "Phalcon REST Library",
+    "description": "Export collection with postmans folder suport for Phalcon REST Library",
     "require": {
         "php": ">=7.0",
-        "ext-phalcon": ">=3.0.0",
-        "ext-json": "*",
-        "szonov/phalcon-rest": "^3.0.0"
+        "redound/phalcon-rest": "^2.0.0"
     },
     "authors": [
         {
@@ -23,7 +21,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "PhalconRest\\Export\\": "src/PhalconRest/Export"
+            "PhalconRestExport\\": "src/PhalconRestExport"
         }
     }
 }

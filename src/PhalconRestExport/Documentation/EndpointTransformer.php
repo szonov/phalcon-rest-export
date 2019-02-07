@@ -1,6 +1,6 @@
 <?php
 
-namespace PhalconRest\Export\Documentation;
+namespace PhalconRestExport\Documentation;
 
 use PhalconRest\Transformers\Transformer;
 
@@ -14,8 +14,7 @@ class EndpointTransformer extends Transformer
             'httpMethod' => $endpoint->getHttpMethod(),
             'path' => $endpoint->getPath(),
             'exampleResponse' => $endpoint->getExampleResponse(),
-            'allowedRoles' => $endpoint->getAllowedRoles(),
-            'conditions' => $endpoint->getConditions(),
+            'allowedRoles' => $endpoint->getAllowedRoles()
         ];
     }
 }

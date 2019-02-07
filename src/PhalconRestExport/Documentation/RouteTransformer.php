@@ -1,6 +1,6 @@
 <?php
 
-namespace PhalconRest\Export\Documentation;
+namespace PhalconRestExport\Documentation;
 
 use Phalcon\Mvc\Router\Route;
 use PhalconRest\Transformers\Transformer;

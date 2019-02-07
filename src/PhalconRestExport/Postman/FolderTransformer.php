@@ -1,6 +1,6 @@
 <?php
 
-namespace PhalconRest\Export\Postman;
+namespace PhalconRestExport\Postman;
 
 use PhalconRest\Transformers\Transformer;
 

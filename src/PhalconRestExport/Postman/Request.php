@@ -1,6 +1,6 @@
 <?php
 
-namespace PhalconRest\Export\Postman;
+namespace PhalconRestExport\Postman;
 
 class Request
 {

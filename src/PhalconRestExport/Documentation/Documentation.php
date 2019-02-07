@@ -1,6 +1,6 @@
 <?php
 
-namespace PhalconRest\Export\Documentation;
+namespace PhalconRestExport\Documentation;
 
 use Phalcon\Mvc\Router\Route;
 use PhalconRest\Api\ApiCollection;
@@ -31,14 +31,10 @@ class Documentation extends Plugin
 
     public function addRoute(Route $route)
     {
-        $routeName = $route->getName();
-        if ($routeName)
-        {
-            $parts = explode('!', $routeName, 3);
-            if (@unserialize($parts[2] ?? null)) {
-                return;
-            }
+        if (@unserialize($route->getName())) {
+            return;
         }
+
         $this->routes[] = $route;
     }
 
@@ -97,17 +93,17 @@ class Documentation extends Plugin
             $endpoint->setHttpMethod($apiEndpoint->getHttpMethod());
             $endpoint->setPath($apiEndpoint->getPath());
             $endpoint->setExampleResponse($apiEndpoint->getExampleResponse());
-            $endpoint->setConditions($apiEndpoint->getAclRules());
 
             $allowedRoleNames = [];
 
-            $allowedRoles = $this->acl->whichRolesHaveAccess($apiCollection->getName(), $apiEndpoint->getName());
-            foreach ($allowedRoles as $role => $conditions)
-            {
-                if (!empty($conditions))
-                    $role .= '*';
+            /** @var \Phalcon\Acl\Role $role */
+            foreach ($aclRoles as $role) {
 
-                $allowedRoleNames[] = $role;
+                if ($this->acl->isAllowed($role->getName(), $apiCollection->getIdentifier(),
+                    $apiEndpoint->getIdentifier())
+                ) {
+                    $allowedRoleNames[] = $role->getName();
+                }
             }
 
             $endpoint->setAllowedRoles($allowedRoleNames);

@@ -1,21 +1,14 @@
 <?php
 
-namespace PhalconRest\Export\Postman;
+namespace PhalconRestExport\Postman;
 
 use PhalconRest\Transformers\Transformer;
 
 class RequestTransformer extends Transformer
 {
-    protected $useAuthHeader;
-
-    public function __construct($useAuthHeader = true)
-    {
-        $this->useAuthHeader = $useAuthHeader;
-    }
-
     public function transform(Request $request)
     {
-        return array_filter([
+        return [
             'collectionId' => $request->collectionId,
             'folder' => $request->folderId,
             'id' => $request->id,
@@ -26,8 +19,6 @@ class RequestTransformer extends Transformer
             'headers' => $request->headers,
             'data' => $request->data,
             'dataMode' => $request->dataMode,
-        ], function ($key) {
-            return $key !== 'headers' || $this->useAuthHeader;
-        }, ARRAY_FILTER_USE_KEY);
+        ];
     }
 }

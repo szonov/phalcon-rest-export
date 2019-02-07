@@ -1,2 +1,4 @@
 # phalcon-rest-export
-Export collection for phalcon-rest
+Export collection for https://github.com/redound/phalcon-rest with folder support in postman import JSON.
+
+
